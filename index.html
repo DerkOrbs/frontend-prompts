@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Generador de Prompts Educativos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="logo.png" alt="Logo" class="logo" />
+      <h1>Generador de Prompts Educativos</h1>
+    </header>
+
+    <form id="promptForm">
+      <!-- Rol docente -->
+      <label for="rol">Rol del docente</label>
+      <select id="rol" required>
+        <option value="">Seleccione un rol</option>
+        <option value="docente_humanista">Docente universitario humanista</option>
+        <option value="formador_ciudadania">Formador en ciudadanía crítica</option>
+        <option value="mediador_saberes">Mediador entre saberes y realidades sociales</option>
+        <option value="facilitador_intercultural">Facilitador del diálogo intercultural</option>
+        <option value="acompanante_autonomo">Acompañante del aprendizaje autónomo</option>
+        <option value="promotor_pensamiento">Promotor del pensamiento crítico</option>
+        <option value="disenador_experiencias">Diseñador de experiencias de aprendizaje</option>
+        <option value="tutor_investigacion">Tutor de investigación formativa</option>
+        <option value="evaluador_aprendizaje">Evaluador del aprendizaje</option>
+        <option value="disenador_curricular">Diseñador curricular</option>
+        <option value="investigador_academico">Investigador académico</option>
+        <option value="coordinador_academico">Coordinador académico</option>
+        <option value="asesor_tesis">Asesor de tesis</option>
+        <option value="docente_reflexivo">Docente reflexivo sobre su práctica</option>
+        <option value="gestor_integridad">Gestor de la integridad académica</option>
+      </select>
+      <div id="rolDesc" class="descripcion"></div>
+
+      <!-- Contexto -->
+      <label for="contexto">Contexto: Tema general o específico</label>
+      <input type="text" id="contexto" placeholder="Ejemplo: Crisis en la sociedad humana" required />
+
+      <!-- Requerimiento -->
+      <label for="actividad">Requerimiento: Tipo de actividad</label>
+      <select id="actividad" required>
+        <option value="">Seleccione una actividad</option>
+        <option value="explicacion">Explicación / Conceptualización</option>
+        <option value="diseno_metodologia">Diseño de actividades / metodologías</option>
+        <option value="planificacion_docente">Planificación docente</option>
+        <option value="evaluacion">Evaluación</option>
+        <option value="retroalimentacion">Retroalimentación</option>
+        <option value="estimulacion_creativa">Estimulación creativa</option>
+        <option value="aplicacion">Aplicación / Resolución</option>
+        <option value="analisis_critico">Análisis crítico</option>
+        <option value="investigacion">Investigación educativa o disciplinar</option>
+        <option value="evaluacion_ensenanza">Evaluación de la enseñanza</option>
+        <option value="formacion_valores">Formación en valores y ciudadanía crítica</option>
+        <option value="interdisciplinariedad">Interdisciplinariedad / Aprendizaje-servicio</option>
+        <option value="autonomia">Autonomía y metacognición del estudiante</option>
+      </select>
+      <div id="actividadDesc" class="descripcion"></div>
+
+      <!-- Formato de salida -->
+      <label for="formato">Formato de salida</label>
+      <select id="formato" required>
+        <option value="">Seleccione un formato</option>
+        <option value="texto_explicativo">Texto explicativo estructurado</option>
+        <option value="guion_exposicion">Guion de exposición o clase</option>
+        <option value="objetivos_aprendizaje">Objetivos o resultados de aprendizaje</option>
+        <option value="cronograma">Cronograma o planificación semanal</option>
+        <option value="preguntas_evaluacion">Preguntas de evaluación (test o abiertas)</option>
+        <option value="rubricas">Rúbricas de evaluación</option>
+        <option value="estudio_caso">Estudio de caso o problema para resolver</option>
+        <option value="preguntas_criticas">Preguntas generadoras para análisis crítico</option>
+        <option value="dilema_etico">Dilema ético o debate</option>
+        <option value="actividad_creativa">Actividad creativa o interdisciplinaria</option>
+        <option value="guia_trabajo">Guía de trabajo o actividad práctica</option>
+        <option value="plantilla_sesion">Plantilla de sesión de clase o ficha didáctica</option>
+        <option value="marco_teorico">Marco teórico o esquema temático</option>
+        <option value="pregunta_investigacion">Pregunta de investigación</option>
+        <option value="diario_reflexivo">Diario reflexivo o bitácora docente</option>
+        <option value="encuesta">Encuesta o instrumento de retroalimentación</option>
+        <option value="comentario_personalizado">Comentario de retroalimentación personalizada</option>
+        <option value="guia_autoevaluacion">Guía de autoevaluación o metacognición</option>
+        <option value="proyecto_service">Propuesta de proyecto de aprendizaje-servicio</option>
+        <option value="mapa_interdisciplinar">Mapa de integración interdisciplinar</option>
+      </select>
+      <div id="formatoDesc" class="descripcion"></div>
+
+      <!-- Restricciones -->
+      <label for="restricciones">Restricciones o criterios</label>
+      <textarea id="restricciones" rows="4" placeholder="Indique condiciones específicas, tono, formato, etc."></textarea>
+
+      <button type="submit" id="btnGenerar">Generar Prompt</button>
+    </form>
+
+    <div class="loader hidden" id="loader"></div>
+
+    <!-- RESULTADO DEL PROMPT -->
+    <div id="resultadoContainer" class="resultado-container hidden">
+      <h2>Prompt generado:</h2>
+      <button id="btnCopiar" class="copiar-btn" title="Copiar al portapapeles">📋</button>
+      <pre id="resultado"></pre>
+    </div>
+
+    <!-- BOTONES PARA ENVIAR A IAs -->
+    <div class="botones-ia">
+      <h3>Enviar prompt a:</h3>
+      <div class="ia-grid">
+        <a href="https://claude.ai" target="_blank" class="ia-btn">
+          <img src="claude.png" alt="Claude" />
+        </a>
+        <a href="https://www.deepseek.com/" target="_blank" class="ia-btn">
+          <img src="deepseek.png" alt="DeepSeek" />
+        </a>
+        <a href="https://gemini.google.com" target="_blank" class="ia-btn">
+          <img src="gemini.png" alt="Gemini" />
+        </a>
+        <a href="https://chat.openai.com" target="_blank" class="ia-btn">
+          <img src="gpt.png" alt="ChatGPT" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Solo tu script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
