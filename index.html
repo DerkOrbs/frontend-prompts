@@ -3,16 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Generador de Prompts Educativos</title>
+  <title>MentorIA - Generador de Prompts Educativos</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
+
+    <!-- Encabezado -->
     <header>
       <img src="logo.png" alt="Logo" class="logo" />
-      <h1>Generador de Prompts Educativos</h1>
+      <div class="titulo-header">
+        <h1 class="main-title" style="font-family:'Playfair Display', serif; font-size: 2.2rem; color: #ff4641;">MentorIA</h1>
+        <p class="subtitle" style="color: #444; font-size: 1rem;">Generador de Prompts Educativos</p>
+      </div>
     </header>
 
+    <!-- Formulario -->
     <form id="promptForm">
       <!-- Rol docente -->
       <label for="rol">Rol del docente</label>
@@ -87,6 +94,17 @@
       </select>
       <div id="formatoDesc" class="descripcion"></div>
 
+      <!-- Competencia general -->
+      <label for="competencia">Competencia general</label>
+      <select id="competencia" required>
+        <option value="">Seleccione una competencia</option>
+        <option value="pensamiento_critico">Pensamiento crítico</option>
+        <option value="investigacion_incidente">Investigación para la incidencia</option>
+        <option value="liderazgo_trascendente">Liderazgo trascendente</option>
+        <option value="ciudadania_global">Ciudadanía global</option>
+      </select>
+      <div id="competenciaDesc" class="descripcion"></div>
+
       <!-- Restricciones -->
       <label for="restricciones">Restricciones o criterios</label>
       <textarea id="restricciones" rows="4" placeholder="Indique condiciones específicas, tono, formato, etc."></textarea>
@@ -96,7 +114,7 @@
 
     <div class="loader hidden" id="loader"></div>
 
-    <!-- RESULTADO DEL PROMPT -->
+    <!-- Resultado -->
     <div id="resultadoContainer" class="resultado-container hidden">
       <h2>Prompt generado:</h2>
       <button id="btnCopiar" class="copiar-btn" title="Copiar al portapapeles">📋</button>
@@ -119,11 +137,13 @@
         <a href="https://chat.openai.com" target="_blank" class="ia-btn">
           <img src="gpt.png" alt="ChatGPT" />
         </a>
+        <a href="https://copilot.microsoft.com" target="_blank" class="ia-btn">
+          <img src="copilot.png" alt="Copilot" />
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- Solo tu script.js -->
   <script src="script.js"></script>
 </body>
 </html>

@@ -56,6 +56,13 @@ const formatos = {
   mapa_interdisciplinar: "Sugerir conexiones entre disciplinas para proyectos integradores."
 };
 
+const competencias = {
+  pensamiento_critico: "Fortalece la argumentación, el juicio ético y la toma de decisiones informadas.",
+  investigacion_incidencia: "Promueve la producción de conocimiento con impacto social.",
+  liderazgo_trascendente: "Impulsa la formación de líderes comprometidos con el bien común.",
+  ciudadania_global: "Fomenta la conciencia intercultural, la sostenibilidad y la responsabilidad global."
+};
+
 // Mostrar descripciones dinámicas
 function setupDescripciones() {
   const campos = {
@@ -80,6 +87,7 @@ async function generarPrompt(e) {
   const rol = document.getElementById("rol");
   const actividad = document.getElementById("actividad");
   const formato = document.getElementById("formato");
+  const competencia = document.getElementById("competencia");
   const contextoInput = document.getElementById("contexto");
   const restriccionesInput = document.getElementById("restricciones");
   const loader = document.getElementById("loader");
@@ -91,6 +99,7 @@ async function generarPrompt(e) {
   const rolKey = rol.value;
   const actividadKey = actividad.value;
   const formatoKey = formato.value;
+  const competenciaKey = competencia.value;
 
   const prompt = `
 Eres un generador experto de prompts educativos para inteligencia artificial, con nivel doctoral en diseño instruccional, pedagogía crítica y ciencia de datos aplicados a la educación.
@@ -106,7 +115,8 @@ Luego desarrolla el prompt incorporando estos elementos clave:
 2. Contexto temático: ${contextoInput.value.trim()}
 3. Tipo de requerimiento: ${actividad.options[actividad.selectedIndex].text} (${actividades[actividadKey]})
 4. Formato de salida: ${formato.options[formato.selectedIndex].text} (${formatos[formatoKey]})
-5. Restricciones o criterios: ${restriccionesInput.value.trim() || "Ninguna"}
+5. Competencia general a fortalecer: ${competencia.options[competencia.selectedIndex].text} (${competencias[competenciaKey]})
+6. Restricciones o criterios: ${restriccionesInput.value.trim() || "Ninguna"}
 
 Instrucciones:
 - Redacta en tono formal, técnico y riguroso.
