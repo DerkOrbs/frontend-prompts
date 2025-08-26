@@ -10,7 +10,7 @@
 <body>
   <div class="container">
 
-    <!-- Encabezado -->
+   
     <header>
       <img src="logo.png" alt="Logo" class="logo" />
       <div class="titulo-header">
@@ -19,9 +19,9 @@
       </div>
     </header>
 
-    <!-- Formulario -->
+    
     <form id="promptForm">
-      <!-- Rol docente -->
+     
       <label for="rol">Rol del docente</label>
       <select id="rol" required>
         <option value="">Seleccione un rol</option>
@@ -43,11 +43,11 @@
       </select>
       <div id="rolDesc" class="descripcion"></div>
 
-      <!-- Contexto -->
+    
       <label for="contexto">Contexto: Tema general o específico</label>
       <input type="text" id="contexto" placeholder="Ejemplo: Crisis en la sociedad humana" required />
 
-      <!-- Requerimiento -->
+      
       <label for="actividad">Requerimiento: Tipo de actividad</label>
       <select id="actividad" required>
         <option value="">Seleccione una actividad</option>
@@ -67,7 +67,7 @@
       </select>
       <div id="actividadDesc" class="descripcion"></div>
 
-      <!-- Formato de salida -->
+      
       <label for="formato">Formato de salida</label>
       <select id="formato" required>
         <option value="">Seleccione un formato</option>
@@ -94,7 +94,7 @@
       </select>
       <div id="formatoDesc" class="descripcion"></div>
 
-      <!-- Competencia general -->
+      
       <label for="competencia">Competencia general</label>
       <select id="competencia" required>
         <option value="">Seleccione una competencia</option>
@@ -105,7 +105,7 @@
       </select>
       <div id="competenciaDesc" class="descripcion"></div>
 
-      <!-- Restricciones -->
+      
       <label for="restricciones">Restricciones o criterios</label>
       <textarea id="restricciones" rows="4" placeholder="Indique condiciones específicas, tono, formato, etc."></textarea>
 
@@ -114,14 +114,14 @@
 
     <div class="loader hidden" id="loader"></div>
 
-    <!-- Resultado -->
+    
     <div id="resultadoContainer" class="resultado-container hidden">
       <h2>Prompt generado:</h2>
       <button id="btnCopiar" class="copiar-btn" title="Copiar al portapapeles">📋</button>
       <pre id="resultado"></pre>
     </div>
 
-    <!-- BOTONES PARA ENVIAR A IAs -->
+    
     <div class="botones-ia">
       <h3>Enviar prompt a:</h3>
       <div class="ia-grid">
