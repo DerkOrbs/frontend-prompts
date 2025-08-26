@@ -63,7 +63,7 @@ const competencias = {
   ciudadania_global: "Fomenta la conciencia intercultural, la sostenibilidad y la responsabilidad global."
 };
 
-// Mostrar descripciones dinámicas
+
 function setupDescripciones() {
   const campos = {
     rol: [roles, "rolDesc"],
@@ -80,7 +80,7 @@ function setupDescripciones() {
   }
 }
 
-// Generar prompt al enviar el formulario
+
 async function generarPrompt(e) {
   e.preventDefault();
 
@@ -155,7 +155,7 @@ Este mensaje será leído por un modelo avanzado de lenguaje. Asegúrate de que 
   }
 }
 
-// Copiar prompt generado
+
 function copiarPrompt() {
   const resultado = document.getElementById("resultado");
   navigator.clipboard.writeText(resultado.textContent).then(() => {
@@ -167,7 +167,7 @@ function copiarPrompt() {
   });
 }
 
-// Inicializar
+
 document.addEventListener("DOMContentLoaded", () => {
   setupDescripciones();
   document.getElementById("promptForm").addEventListener("submit", generarPrompt);
