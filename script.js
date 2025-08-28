@@ -1,4 +1,4 @@
-// --- Diccionarios de descripciones ---
+
 const roles = {
   docente_humanista: "Enseña desde una perspectiva integral, ética y reflexiva.",
   formador_ciudadania: "Promueve la deliberación democrática, el juicio ético y la participación social.",
